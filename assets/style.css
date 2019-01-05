@@ -1,0 +1,457 @@
+:root {
+    --bg-color: #EBEBEB;
+    --main-color: #2E2E2E;
+    --accent-color: #00B7C1;
+    --highlight-top-color: #6afbe6;
+    --highlight-bottom-color: #27C1D1;
+    --main-font-family: 'a-otf-ud-shin-go-pr6n', sans-serif;
+    --semibold-font-family: 'fot-udkakugo-large-pr6n', sans-serif;
+    --number-font-family: 'din-2014', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    overflow: hidden;
+    font-family: var(--main-font-family);
+    font-size: 24px;
+}
+
+button {
+    background-color: transparent;
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+.hm-HomeMenu {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.hm-Header {
+    width: 100vw;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 36px 64px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.hm-UserList {
+    margin-left: 0;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.hm-UserList_User {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    outline: none;
+    position: relative;
+}
+
+.hm-UserList_User::after {
+    content: attr(title);
+    position: absolute;
+    top: calc(100% + 8px);
+    font-size: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 120ms ease;
+    color: var(--accent-color);
+}
+
+.hm-UserList_User:first-of-type::after {
+    left: -12px;
+}
+
+.hm-UserList_User:nth-of-type(2)::after {
+    left: -32px;
+}
+
+.hm-UserList_User:focus::after {
+    opacity: 1;
+}
+
+.hm-UserList_User + .hm-UserList_User {
+    margin-left: 12px;
+}
+
+.hm-UserList_UserIcon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #fff, 0 1px 1px 3px rgba(0, 0, 0, .1);
+    transform-origin: center center;
+    transition: transform 80ms ease;
+}
+
+.hm-UserList_User:focus > .hm-UserList_UserIcon{
+    transform: scale(1.1);
+    box-shadow: 
+        0 0 0 calc(3px / 1.1) #fff, 
+        0 0 0 calc(4px + 3px / 1.1) var(--highlight-top-color),
+        0 calc(1px / 1.1) calc(1px / 1.1) calc(4px + 3px / 1.1) rgba(0, 0, 0, .1);
+    animation: hm-UserList_UserIcon_highlight 1s ease-in-out infinite;
+}
+
+@keyframes hm-UserList_UserIcon_highlight {
+    0% {
+        box-shadow: 
+            0 0 0 calc(3px / 1.1) #fff, 
+            0 0 0 calc(4px + 3px / 1.1) var(--highlight-top-color),
+            0 calc(1px / 1.1) calc(1px / 1.1) calc(4px + 3px / 1.1) rgba(0, 0, 0, .1);
+    }
+    50% {
+        box-shadow: 
+            0 0 0 calc(3px / 1.1) #fff, 
+            0 0 0 calc(4px + 3px / 1.1) var(--highlight-bottom-color),
+            0 calc(1px / 1.1) calc(1px / 1.1) calc(4px + 3px / 1.1) rgba(0, 0, 0, .1);
+    }
+    100% {
+        box-shadow: 
+            0 0 0 calc(3px / 1.1) #fff, 
+            0 0 0 calc(4px + 3px / 1.1) var(--highlight-top-color),
+            0 calc(1px / 1.1) calc(1px / 1.1) calc(4px + 3px / 1.1) rgba(0, 0, 0, .1);
+    }
+}
+
+.hm-GlobalStatus {
+    margin-left: auto;
+    margin-right: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.hm-TimeStatus {
+    color: var(--main-color);
+    font-family: var(--number-font-family);
+    display: flex;
+    flex-flow: row nowrap;
+    font-weight: 500;
+}
+
+.hm-TimeStatus_Time {
+    font-size: 24px;
+    letter-spacing: 2px;
+    line-height: 24px;
+}
+.hm-TimeStatus_Time_Hour {
+}
+.ht-TimeStatus_Time_Separator {
+    vertical-align: 2px;
+}
+.hm-TimeStatus_Time_Minute {
+}
+
+.hm-TimeStatus + .hm-WifiStatus {
+    margin-left: 12px;
+}
+
+.hm-WifiStatus {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    transform: translateY(-1px)
+}
+
+.hm-WifiStatus_Icon {
+    width: 100%;
+    height: 100%;
+}
+
+.hm-WifiStatus + .hm-BatteryStatus {
+    margin-left: 20px;
+}
+
+.hm-BatteryStatus {
+    width: 20px;
+    height: 10px;
+    background-color: var(--main-color);
+    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--main-color);
+    position: relative;
+}
+.hm-BatteryStatus::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 4px);
+    transform: translateY(-50%);
+    width: 3px;
+    height: 6px;
+    background-color: var(--main-color);
+}
+
+.hm-Body {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.hm-GameList {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 124px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    overflow: visible;
+}
+
+.hm-GameLauncher {
+    width: 246px;
+    height: 246px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+    position: relative;
+    flex-shrink: 0;
+    outline: none;
+    position: relative;
+}
+
+.hm-GameLauncher:focus {
+    box-shadow: 
+        0 0 0 3px #fff, 
+        0 0 0 calc(4px + 3px) var(--highlight-top-color),
+        0 1px 1px calc(4px + 3px) rgba(0, 0, 0, .1);
+    animation: hm-GameLauncher_Highlight 1s ease-in-out infinite;
+}
+
+@keyframes hm-GameLauncher_Highlight {
+    0% {
+        box-shadow: 
+        0 0 0 3px #fff, 
+        0 0 0 calc(4px + 3px) var(--highlight-top-color),
+        0 1px 1px calc(4px + 3px) rgba(0, 0, 0, .1);
+    }
+    50% {
+        box-shadow: 
+        0 0 0 3px #fff, 
+        0 0 0 calc(4px + 3px) var(--highlight-bottom-color),
+        0 1px 1px calc(4px + 3px) rgba(0, 0, 0, .1);
+    }
+    100% {
+        box-shadow: 
+        0 0 0 3px #fff, 
+        0 0 0 calc(4px + 3px) var(--highlight-top-color),
+        0 1px 1px calc(4px + 3px) rgba(0, 0, 0, .1);
+    }
+}
+
+.hm-GameLauncher + .hm-GameLauncher {
+    margin-left: 16px;
+}
+
+.hm-GameLauncher_Title {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 24px;
+    color: var(--accent-color);
+    user-select: none;
+    opacity: 0;
+    transition: opacity 120ms ease;
+}
+
+.hm-GameLauncher:focus > .hm-GameLauncher_Title {
+    opacity: 1;
+}
+
+.hm-GameLauncher_Thumbnail {
+    width: 100%;
+    height: 100%;
+}
+
+.hm-GameLauncher-placeholder {
+    width: 246px;
+    height: 246px;
+    box-sizing: border-box;
+    border: 3px solid rgba(255, 255, 255, .5);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+    flex-shrink: 0;
+}
+
+.hm-GameLauncher + .hm-GameLauncher-placeholder,
+.hm-GameLauncher-placeholder + .hm-GameLauncher-placeholder {
+    margin-left: 16px;
+}
+
+.hm-UtilityNavigation {
+    flex-shrink: 0;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.hm-GameList + .hm-UtilityNavigation {
+    margin-top: 56px;
+}
+
+.hm-UtilityButton-newsfeed,
+.hm-UtilityButton-eshop,
+.hm-UtilityButton-garally,
+.hm-UtilityButton-keyconfig,
+.hm-UtilityButton-setting,
+.hm-UtilityButton-power {
+    width: 88px;
+    height: 88px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    position: relative;
+}
+
+.hm-UtilityButton-newsfeed::after,
+.hm-UtilityButton-eshop::after,
+.hm-UtilityButton-garally::after,
+.hm-UtilityButton-keyconfig::after,
+.hm-UtilityButton-setting::after,
+.hm-UtilityButton-power::after{
+    content: attr(aria-label);
+    display: block;
+    white-space: nowrap;
+    position: absolute;
+    top: calc(100% + 8px);
+    color: var(--accent-color);
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 120ms ease;
+}
+
+.hm-UtilityButton-newsfeed:focus,
+.hm-UtilityButton-eshop:focus,
+.hm-UtilityButton-garally:focus,
+.hm-UtilityButton-keyconfig:focus,
+.hm-UtilityButton-setting:focus,
+.hm-UtilityButton-power:focus{
+    box-shadow: 
+        0 0 0 4px var(--highlight-top-color),
+        0 1px 1px 4px rgba(0, 0, 0, .1);
+    animation: hm-UtilityButton_Highlight 1s ease-in-out infinite;
+}
+
+.hm-UtilityButton-newsfeed:focus::after,
+.hm-UtilityButton-eshop:focus::after,
+.hm-UtilityButton-garally:focus::after,
+.hm-UtilityButton-keyconfig:focus::after,
+.hm-UtilityButton-setting:focus::after,
+.hm-UtilityButton-power:focus::after{
+    opacity: 1;
+}
+
+@keyframes hm-UtilityButton_Highlight {
+    0% {
+        box-shadow: 
+        0 0 0 4px var(--highlight-top-color),
+        0 1px 1px 4px rgba(0, 0, 0, .1);
+    }
+    50% {
+        box-shadow: 
+        0 0 0 4px var(--highlight-bottom-color),
+        0 1px 1px 4px rgba(0, 0, 0, .1);
+    }
+    100% {
+        box-shadow: 
+        0 0 0 4px var(--highlight-top-color),
+        0 1px 1px 4px rgba(0, 0, 0, .1);
+    }
+}
+
+.hm-UtilityButton-eshop,
+.hm-UtilityButton-garally,
+.hm-UtilityButton-keyconfig,
+.hm-UtilityButton-setting,
+.hm-UtilityButton-power {
+    margin-left: 20px;
+}
+
+.hm-UtilityButton-newsfeed {
+
+}
+.hm-UtilityButton-eshop {
+
+}
+.hm-UtilityButton-garally {
+
+}
+.hm-UtilityButton-keyconfig {
+
+}
+.hm-UtilityButton-setting {
+
+}
+.hm-UtilityButton-power {
+
+}
+
+.hm-UtilityButton_Icon {
+    width: calc(100% - 28px);
+    height: calc(100% - 28px);
+}
+
+.hm-Footer {
+    margin: auto 32px 0 32px;
+    padding: 0 24px;
+    height: 72px;
+    border-top: 1px solid var(--main-color);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.hm-ControllerStatus {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-left: 0;
+    margin-right: auto;
+}
+/* .hm-ControllerStatus_BatteryStatus {
+
+} */
+.hm-ControllerStatus_ControllerType {
+    width: 66px;
+    height: 36px;
+}
+.hm-KeyGuideList {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0;
+}
+.hm-KeyGuide {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.hm-KeyGuide + .hm-KeyGuide {
+    margin-left: 16px;
+}
+.hm-KeyGuide_Icon {
+    width: 32px;
+    height: 32px;
+}
+.hm-KeyGuide_Text {
+    font-family: var(--semibold-font-family);
+    font-size: 16px;
+    transform: translateY(-1px);
+    letter-spacing: .4px;
+}
+.hm-KeyGuide_Icon + .hm-KeyGuide_Text {
+    margin-left: 4px;
+}
+

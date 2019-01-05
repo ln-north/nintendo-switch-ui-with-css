@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nintendo Switch UI with CSS</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <script>
+        (function(d) {
+            var config = {
+            kitId: 'xrv4rvr',
+            scriptTimeout: 3000,
+            async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+        </script>
+</head>
+<body>
+    <article class="hm-HomeMenu">
+        <header class="hm-Header">
+            <div class="hm-UserList">
+                <a href="#" class="hm-UserList_User" title="えるにゃんのマイページ">
+                    <img class="hm-UserList_UserIcon" src="./assets/avater1-mosaic.png" alt="えるにゃん">
+                </a>
+                <a href="#" class="hm-UserList_User" title="こここっこのマイページ">
+                    <img class="hm-UserList_UserIcon" src="./assets/avater2-mosaic.png" alt="こここっこ">
+                </a>
+            </div>
+            <div class="hm-GlobalStatus">
+                <div class="hm-TimeStatus">
+                    <div class="hm-TimeStatus_Time">
+                        <span class="ht-TimeStatus_Time_Hour">8</span><span class="ht-TimeStatus_Time_Separator">:</span><span class="ht-TimeStatus_Time_Minute">17</span>
+                    </div>
+                </div>
+                <div class="hm-WifiStatus">
+                    <img class="hm-WifiStatus_Icon" src="assets/wifi.svg" alt="wifi-icon">
+                </div>
+                <div class="hm-BatteryStatus">
+                    <!-- NOTE: ここにbatteryのsvg入れる、中のバッテリー表現はどこで持たせるべきか -->
+                </div>
+        </header>
+        <main class="hm-Body">
+            <div class="hm-GameList">
+                <button class="hm-GameLauncher">
+                    <div class="hm-GameLauncher_Title">ゼルダの伝説 Breath of the Wild</div>
+                    <img class="hm-GameLauncher_Thumbnail" src="./assets/thumbnail-bow-mosaic.png" alt="ゼルダの伝説 Breath of the Wild">
+                </button>
+                <button class="hm-GameLauncher">
+                    <div class="hm-GameLauncher_Title">Splatoon2</div>
+                    <img class="hm-GameLauncher_Thumbnail" src="./assets/thumbnail-splatoon-mosaic.png" alt="Splatoon2">
+                </button>
+                <button class="hm-GameLauncher">
+                    <div class="hm-GameLauncher_Title">スーパーマリオオデッセイ</div>
+                    <img class="hm-GameLauncher_Thumbnail" src="./assets/thumbnail-odyssey-mosaic.png" alt="スーパーマリオオデッセイ">
+                </button>
+                <button class="hm-GameLauncher">
+                    <div class="hm-GameLauncher_Title">大乱闘スマッシュブラザーズSPECIAL</div>
+                    <img class="hm-GameLauncher_Thumbnail" src="./assets/thumbnail-smashbrossp-mosaic.png" alt="大乱闘スマッシュブラザーズSPECIAL">
+                </button>
+                <button class="hm-GameLauncher-placeholder" disabled></button>
+                <button class="hm-GameLauncher-placeholder" disabled></button>
+                <button class="hm-GameLauncher-placeholder" disabled></button>
+                <button class="hm-GameLauncher-placeholder" disabled></button>
+                <button class="hm-GameLauncher-placeholder" disabled></button>
+            </div>
+            <div class="hm-UtilityNavigation">
+                <button class="hm-UtilityButton-newsfeed" aria-label="ゲームニュース">
+                    <img class="hm-UtilityButton_Icon" src="assets/newsfeed.svg" alt="newsfeed-icon">
+                </button>
+                <button class="hm-UtilityButton-eshop" aria-label="ニンテンドーeショップ">
+                    <img class="hm-UtilityButton_Icon" src="assets/eShop.svg" alt="eshop-icon">
+                </button>
+                <button class="hm-UtilityButton-garally" aria-label="アルバム">
+                    <img class="hm-UtilityButton_Icon" src="assets/gallary.svg" alt="gallary-icon">
+                </button>
+                <button class="hm-UtilityButton-keyconfig" aria-label="コントローラー">
+                    <img class="hm-UtilityButton_Icon" src="assets/controller.svg" alt="controller-icon">
+                </button>
+                <button class="hm-UtilityButton-setting" aria-label="設定">
+                    <img class="hm-UtilityButton_Icon" src="assets/settings.svg" alt="settings-icon">
+                </button>
+                <button class="hm-UtilityButton-power" aria-label="スリープ">
+                    <img class="hm-UtilityButton_Icon" src="assets/power.svg" alt="power-icon">
+                </button>
+            </div>
+        </main>
+        <footer class="hm-Footer">
+            <div class="hm-ControllerStatus">
+                <!-- <div class="hm-ControllerStatus_BatteryStatus"></div> -->
+                <div class="hm-ControllerStatus_ControllerType">
+                    <img src="assets/controller-type-union.svg" alt="unioned">
+                </div>
+            </div>
+            <div class="hm-KeyGuideList">
+                <div class="hm-KeyGuide">
+                    <img class="hm-KeyGuide_Icon" src="assets/key-plus.svg" alt="+キー">
+                    <div class="hm-KeyGuide_Text">
+                        オプション
+                    </div>
+                </div>
+                <div class="hm-KeyGuide">
+                    <img class="hm-KeyGuide_Icon" src="assets/key-a.svg" alt="aキー">
+                    <div class="hm-KeyGuide_Text">
+                        はじめる
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        (() => {
+            const now = new Date();
+            const h = document.querySelector('.ht-TimeStatus_Time_Hour');
+            h.innerText = now.getHours();
+            const m = document.querySelector('.ht-TimeStatus_Time_Minute');
+            m.innerText = now.getMinutes();
+        })();
+    </script>
+</body>
+</html>
